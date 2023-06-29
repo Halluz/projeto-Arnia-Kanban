@@ -16,7 +16,7 @@ export const PaginaKanban: React.FC = () => {
         const respostaAPI = async () => {
             const ObterTodosCards = await obterTodasAsTarefas()
             SetVetTodasTarefas( ObterTodosCards) 
-            console.log(ObterTodosCards)
+            
         }
             respostaAPI()
             console.log(respostaAPI())

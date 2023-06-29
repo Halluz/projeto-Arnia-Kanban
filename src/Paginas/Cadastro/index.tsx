@@ -27,7 +27,7 @@ export default function PaginaCadastro(){
             window.alert("Os campos Senha e Confirmar-Senha precisam ter conteúdos idênticos!")
             return
         }
-        console.log("Função assincrona 'cadastrar' está funcionando")
+        
 
         const usuario: Usuario = {
             "email": email,
@@ -44,7 +44,6 @@ export default function PaginaCadastro(){
                 },
                 body: JSON.stringify(usuario)
             })
-            console.log("Executou o try")
             const respostaJSON = await resposta.json()
             console.log(respostaJSON)
         }catch(erro){
