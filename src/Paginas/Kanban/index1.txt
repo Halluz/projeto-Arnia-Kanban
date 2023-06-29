@@ -1,0 +1,78 @@
+import { Cabecalho } from "../../Componentes/Cabecalho";
+import Tabela from "../../Componentes/Tabela";
+import { Coluna } from "../../Componentes/Coluna";
+import { TarefaForm, Tarefa } from "../../Componentes/Tarefa";
+import { obterTodasAsTarefas } from "../../Servicos/Funções/funcoes";
+import { TarefaAPI } from "../../Servicos/Tipos/tipos";
+import {useEffect, useState} from "react"
+
+type KanbanProps = {
+    title: string,
+    content: string,
+    column: "TODO" | "DOING" | "DONE",
+    _Id: string
+}
+
+
+export const PaginaKanban = () => {
+    const [vetTodasTarefas, SetVetTodasTarefas] = useState <Array<KanbanProps>>([])
+    // let tarefasTODO: TarefaAPI[] = []
+    // let vetTodasTarefas: TarefaAPI[] = []
+    useEffect(() => {
+        const respostaAPI = async () => {
+            const ObterTodosCards = await obterTodasAsTarefas()
+            SetVetTodasTarefas( ObterTodosCards) }
+            // vetTodasTarefas = await obterTodasAsTarefas
+            respostaAPI()
+            console.log(vetTodasTarefas)
+        
+    }, [])
+    
+    console.log(vetTodasTarefas)
+    return (
+        <>
+            <Cabecalho/>
+            <Tabela>
+                <Coluna titulo="Novo">
+                    <TarefaForm />
+                </Coluna>
+                <Coluna titulo="To Do">
+                    {/* <Tarefa titulo=" 1) Levantar da Cama" coluna="TODO" conteudo="lorem loremlorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem "/> */}
+                    {Array.isArray(vetTodasTarefas) && (
+                        vetTodasTarefas.filter(ObjetoTarefaAPI => ObjetoTarefaAPI.column === "TODO")
+                        .map((ObjetoTarefaAPI, indice) => (
+                            <Tarefa key={indice} titulo={ObjetoTarefaAPI.title} conteudo={ObjetoTarefaAPI.content} coluna={ObjetoTarefaAPI.column}/> 
+                            
+                        ))
+                        ) 
+                    }
+                </Coluna>
+                <Coluna titulo="Doing">
+                    
+                    {/* <Tarefa titulo=" 2) Escovar os dentes" coluna="DOING" conteudo="lorem loremlorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem "/>
+                    <Tarefa titulo=" 3) Tomar banho" coluna="DOING" conteudo="lorem loremlorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem "/>
+                    <Tarefa titulo=" 4) Estudar Typescript com React" coluna="DOING" conteudo="lorem loremlorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem "/> */}
+                    {Array.isArray(vetTodasTarefas) && (
+                        vetTodasTarefas.filter(ObjetoTarefaAPI => ObjetoTarefaAPI.column === "DOING")
+                        .map((ObjetoTarefaAPI, indice) => (
+                            <Tarefa key={indice} titulo={ObjetoTarefaAPI.title} conteudo={ObjetoTarefaAPI.content} coluna={ObjetoTarefaAPI.column} />
+                        ))
+                    )
+                    }
+                    
+
+                </Coluna>
+                <Coluna titulo="Done">
+                    {/* <Tarefa titulo=" 5) Estilizar Projeto" coluna="DONE" conteudo="lorem loremlorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem "/> */}
+                    {Array.isArray(vetTodasTarefas) && (
+                        vetTodasTarefas.filter(ObjetoTarefaAPI => ObjetoTarefaAPI.column === "DONE")
+                        .map((ObjetoTarefaAPI, indice) => (
+                            <Tarefa key={indice} titulo={ObjetoTarefaAPI.title} conteudo={ObjetoTarefaAPI.content} coluna={ObjetoTarefaAPI.column} />
+                        ))
+                    )}
+                </Coluna>
+            </Tabela>
+
+        </>
+    )
+}

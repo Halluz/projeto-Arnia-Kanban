@@ -1,0 +1,247 @@
+{
+	"info": {
+		"_postman_id": "6c2019b0-b272-493b-9c9b-d532fe3a6c9e",
+		"name": "Kanban Arnia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create new user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"teste@teste.com\",\r\n    \"password\": \"123456\",\r\n    \"name\": \"Teste Teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/user",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"teste@teste.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/user/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Card",
+			"item": [
+				{
+					"name": "Create New Card",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{USER_TOKEN}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Teste 2\",\r\n    \"content\": \"Lorem ipsum teste lorem Lorem Ipsum \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/card",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"card"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Card",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{USER_TOKEN}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Teste 2\",\r\n    \"content\": \"Lorem ipsum teste lorem Lorem Ipsum \",\r\n    \"column\": \"DOING\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/card/648a4d4f7280fb444305046b",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"card",
+								"648a4d4f7280fb444305046b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Cards",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{USER_TOKEN}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/api/card",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"card"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Card",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{USER_TOKEN}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/api/card/648a4d4f7280fb444305046b",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"card",
+								"648a4d4f7280fb444305046b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{API_KEY}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "x-api-key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "DEV_API_URL",
+			"value": "http://localhost:3000",
+			"type": "default"
+		},
+		{
+			"key": "API_URL",
+			"value": "https://arnia-kanban.vercel.app/",
+			"type": "default"
+		},
+		{
+			"key": "API_KEY",
+			"value": "52a8b954-e25d-4cc5-86e5-c32e92f994bb",
+			"type": "default"
+		},
+		{
+			"key": "USER_TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGE0YjdiMjBkYzExZDNiODFmZTIxNiIsIm5hbWUiOiJUZXN0ZSBUZXN0ZSIsImVtYWlsIjoidGVzdGVAdGVzdGUuY29tIiwiaWF0IjoxNjg2Nzg0OTgxLCJleHAiOjE2ODY4NzEzODF9._E0VMxDo3RmvQSN1A6QKyDdzeLmUKwbXqpPDEZMC_bM",
+			"type": "default"
+		}
+	]
+}

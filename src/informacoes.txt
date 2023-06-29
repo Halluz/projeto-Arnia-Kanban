@@ -1,0 +1,27 @@
+Este é um mini-projeto de um Kanban, modelo de gerênciamento de atividades. Neste projeto foi utilizado a linguagem Typescript, com as bibliotecas React, React-Dom, Styled-components, React-router-dom.
+
+Link do projeto no Figma:
+https://www.figma.com/file/1iyiILSk1xgH1ZA7a5V9K0/Exerc%C3%ADcio-Modulo-II---Kanban?type=design&node-id=502-126
+
+
+Documentação da Api
+https://github.com/albertotimoteo/arnia-kanban
+
+Link da demonstração de hoje: https://github.com/albertotimoteo/demonstracao-login-api
+Link da api no github: https://github.com/albertotimoteo/arnia-kanban
+
+Obs:
+
+o TypeScript não consegue encontrar os tipos de declaração para o pacote styled-components. Para resolver esse problema, você pode seguir as seguintes etapas:
+
+Instale o pacote "@types/styled-components" como dependência de desenvolvimento no seu projeto. Execute o seguinte comando no terminal:
+
+npm install --save-dev @types/styled-components
+
+---------------------------------------------
+Se sobrar tempo, usar "Arrastar e soltar" (Drag And Drop) para trocar os cards de tarefaz para outra coluna
+
+----------------------------------------------------
+Para usar Rotas (mais de uma página) é necessário instalar a biblioteca "react-router-dom". Para instalar essa biblioteca digite o comando abaixo no terminal com o caminho na pasta raíz do projeto:
+
+npm install react-router-dom
