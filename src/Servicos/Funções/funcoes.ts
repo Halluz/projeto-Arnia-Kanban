@@ -100,3 +100,4 @@ export const retrocederEstado = (colunaAtual: TipoColuna) => {
     }
     return 'TODO'
 }
+

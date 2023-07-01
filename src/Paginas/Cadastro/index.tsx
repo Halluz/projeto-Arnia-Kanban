@@ -77,7 +77,7 @@ export default function PaginaCadastro(){
                             <Campo id="repetirSenhaCadastro" type="password" value={confSenha} onChange={(evento)=> setConfSenha(evento.target.value)}/>
                         </Divisoria>
                     
-                        <Link to="/">Voltar</Link>
+                        <Link to="/" style={{color: "white"}}>Voltar</Link>
                     
                     </Formulario>
                     <Botao onClick={cadastrar}>CADASTRAR</Botao>

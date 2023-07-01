@@ -63,7 +63,7 @@ export default function PaginaLogin(){
             </Formulario>
             <Botao onClick={logar} >Entrar</Botao>
                     <Link to="Cadastro" style={{color: "white"}}>Cadastre-se</Link>
-                    <Link to="kanban" style={{color: "white"}}>Kanban</Link>
+                    {/* <Link to="kanban" style={{color: "white"}}>Kanban</Link> */}
           </RecipienteFormulario>
 
         </>
