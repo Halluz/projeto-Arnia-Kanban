@@ -10,13 +10,23 @@ import {Dispatch, SetStateAction, useState} from "react"
 import { TarefaAPI, TipoTarefa } from "../../Servicos/Tipos/tipos"
 import { adicionarTarefa, editarTarefa, avancarEstado, retrocederEstado, deletarTarefa } from "../../Servicos/Funções/funcoes"
 
+import { ModalDeletarTarefa } from "../Modal/modal"
+
 
 
 export const Tarefa = ({titulo, conteudo, coluna, atualizarTarefas, id_API}: TipoTarefa) => {
     const [ehParaEditar, setEhParaEditar] = useState(false)
     const [tituloEdicao, setTituloEdicao] = useState(titulo)
     const [conteudoEdicao, setConteudoEdicao] = useState(conteudo)
+    const [abrirModal, setAbrirModal] = useState(false)
     
+
+        if(abrirModal === true){
+            return (
+                <ModalDeletarTarefa funcAbrirModal = {setAbrirModal} id_tarefa={id_API} atualizarTarefas={atualizarTarefas}/>
+            )
+        }
+
         return (
             ehParaEditar === false ?  (
                 <Cartao>
@@ -30,8 +40,9 @@ export const Tarefa = ({titulo, conteudo, coluna, atualizarTarefas, id_API}: Tip
                         
                         <Rodape>
                             <ImagemBotao src={ImagemLixeira} alt="Imagem Deletar" onClick={async () => {
-                                const arrayTarefas = await deletarTarefa(id_API)
-                                atualizarTarefas(arrayTarefas)
+                                /* const arrayTarefas = await deletarTarefa(id_API)
+                                atualizarTarefas(arrayTarefas) *///DELETA sem o modal
+                                setAbrirModal(true)
                             }} />
                             <ImagemBotao src={ImagemProximo} alt="Imagem Próximo" onClick={async () => {
                                 const proximoEstado = avancarEstado(coluna)
@@ -49,8 +60,9 @@ export const Tarefa = ({titulo, conteudo, coluna, atualizarTarefas, id_API}: Tip
                                 atualizarTarefas(arrayTarefas)
                             }} />
                             <ImagemBotao src={ImagemLixeira} alt="Imagem Deletar" onClick={async () => {
-                                const arrayTarefas = await deletarTarefa(id_API)
-                                atualizarTarefas(arrayTarefas)
+                                /* const arrayTarefas = await deletarTarefa(id_API)
+                                atualizarTarefas(arrayTarefas) *///DELETA sem o modal
+                                setAbrirModal(true)
                             }}/>
                             <ImagemBotao src={ImagemProximo} alt="Imagem Próximo"  onClick={async () => {
                                 const proximoEstado = avancarEstado(coluna)
@@ -68,8 +80,9 @@ export const Tarefa = ({titulo, conteudo, coluna, atualizarTarefas, id_API}: Tip
                                 atualizarTarefas(arrayTarefas)
                             }}/>
                             <ImagemBotao src={ImagemLixeira} alt="Imagem Deletar" onClick = {async () => {
-                                const arrayTarefas = await deletarTarefa(id_API)
-                                atualizarTarefas(arrayTarefas)
+                                /* const arrayTarefas = await deletarTarefa(id_API)
+                                atualizarTarefas(arrayTarefas) *///DELETA sem o modal
+                                setAbrirModal(true)
                             }}/>
                         </Rodape>
                     )}

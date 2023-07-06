@@ -1,7 +1,7 @@
 import { Formulario, Divisoria, Campo, RecipienteFormulario } from "../../Componentes/Estilo/estilo"
 import { Botao } from "../../Componentes/Botao/estilo"
 import {Link} from "react-router-dom"
-import React, {useState} from "react"
+import {useState} from "react"
 import { Usuario } from "../../Servicos/Tipos/tipos"
 
 const urlAPI = "https://arnia-kanban.vercel.app/"
@@ -58,7 +58,7 @@ export default function PaginaCadastro(){
                     <Formulario>
                         <h2>Arnia Trello</h2>
                         <h3>Cadastro</h3>
-                        <p style={{margin: '0px'}}>{nome}, {email}, {senha}, {confSenha}</p>
+                        {/* <p style={{margin: '0px'}}>{nome}, {email}, {senha}, {confSenha}</p> */}
                         <Divisoria>
                             <label htmlFor="nomeCadastro">Nome Completo</label>
                             <Campo id="nomeCadastro" type="text" value={nome} onChange={(evento) => setNome(evento.target.value)}/>

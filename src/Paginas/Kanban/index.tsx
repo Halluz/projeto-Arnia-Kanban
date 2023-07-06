@@ -61,7 +61,6 @@ export const PaginaKanban: React.FC = () => {
                     }
                 </Coluna>
             </Tabela>
-
         </>
     )
 }

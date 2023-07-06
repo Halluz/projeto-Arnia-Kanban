@@ -3,7 +3,13 @@ Documentação da Api
 https://github.com/albertotimoteo/arnia-kanban
 
 Utilizando a API no Postman:
- 
 
-Por que eu não consegui fazer a submissão do formulário de cadastro? Na ocasião usei o atributo de evento "onSubmit" o qual dispararia a função que realizaria a requisição POST para API (<Formulario id="cadastro" onSubmit={cadastrar}>). O "cadastrar" dentro das chaves é a função assincrona. Nesse formulário o botão "CADASTRAR" estava dentro do escopo do formulário e estava com o tipo definido como "submit". Como sempre estava retornado um erro no método "fetch" e disporando o bloco do "catch", troquei de estratégia e agora a função de requisição é chamda pelo o evento de "onClick" no botão que está fora do formulário. E dessa forma eu consegui fazer a requisição.
+Por que a requisição "Login" é do tipo POST ? 
+
+Por que não estou conseguindo definir largura para o componente gráfico "Tabela". Também não estou conseguindo centraliza-lo com "margin: 0 auto;"
+
+Por que eu não consegui fazer a submissão do formulário de cadastro? Na ocasião usei o atributo de evento "onSubmit" o qual dispararia a função que realizaria a requisição POST para API (<Formulario id="cadastro" onSubmit={cadastrar}>). O "cadastrar" dentro das chaves é a função assincrona. Nesse formulário o botão "CADASTRAR" estava dentro do escopo do formulário e estava com o tipo definido como "submit". Como sempre estava retornado um erro no método "fetch" e disporando o bloco do "catch", troquei de estratégia e agora a função de requisição é chamda pela o evento de "onClick" no botão que está fora do formulário. E dessa forma eu consegui fazer a requisição.
+
+
+kent C. Dodds é uma fera no front-end. Tudo que ele faz é top tenho que verificar: https://kentcdodds.com/
 
